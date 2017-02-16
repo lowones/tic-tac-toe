@@ -1,0 +1,48 @@
+#!/usr/bin/python
+from itertools import cycle
+
+def main():
+  print "main"
+  lst = ["X", "O"]
+  players = cycle(lst)
+  board = create_board()
+  winner = False
+  while not winner:
+    player = next(players)
+#    print("Play the game %s" % player)
+#    print player
+#    print_board(board)
+    get_move(player, board)
+
+def print_board(board):
+#  for row in range(len(board)):
+#    for col in range(len(board[row])):
+#      print(board[row][col]),
+  print
+  print(" %s | %s | %s" % (board[0][0], board[0][1], board[0][2]))
+  print("-------------")
+  print(" %s | %s | %s" % (board[1][0], board[1][1], board[1][2]))
+  print("-------------")
+  print(" %s | %s | %s" % (board[2][0], board[2][1], board[2][2]))
+  print
+
+
+'''
+1234567890123
+ 1 |  2 |  3 
+-------------
+ 4 |  5 |  6 
+-------------
+ 7 |  8 |  9 
+'''
+
+def get_move(player, board):
+  print_board(board)
+  print("Chose position to play player %s" % player)
+
+def create_board():
+  board = (["1", "2", "3"],["4", "5", "6"], ["7", "8", "9"])
+  return board
+
+if __name__ == "__main__":
+  main()
